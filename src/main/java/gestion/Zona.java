@@ -5,33 +5,58 @@ import java.util.ArrayList;;
 
 public class Zona {
     private String nombre;
-    private Zoologico[] zoo;
+    private Zoologico zoo;
     private ArrayList<Animal> animales;
     
-    public Zona(String nombre, Zoologico zoo[], ArrayList<Animal>  animales){
+    public Zona(String nombre, Zoologico zoo){
 
         this.nombre = nombre;
         this.zoo = zoo;
-        this.animales = animales;
+        this.animales = new ArrayList<>();
+        
 
     }
-    public Zona(){}
+    public Zona(){
+        this.animales = new ArrayList<>();
+    }
 
+    
+    public String getNombre() {
+        return nombre;
+    }
+    
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    
+    public Zoologico getZoo() {
+        return zoo;
+    }
+    
+    public void setZoo(Zoologico zoo) {
+        this.zoo = zoo;
+    }
+
+    
+    public ArrayList<Animal> getAnimales() {
+        return animales;
+    }
+    
+    public void setAnimales(ArrayList<Animal> animales) {
+        this.animales = animales;
+    }
 
     public void agregarAnimales(Animal animal){
         animales.add(animal);
+        Zoologico.total ++;
     }
 
-        public int cantidadAnimales(){
-            // Retornar la cantidad total de animales de las zona
+    public int cantidadAnimales(){
 
-            return Anfibio.cantidadAnfibios() + Ave.cantidadAves() + Mamifero.cantidadMamiferos() + Pez.cantidadPeces() + Reptil.cantidadReptiles();
-        }
+        return animales.size();
+        
 
-    public static void main(String args[]){
-
-        System.out.println("ASAsa");
+        
     }
-
-
 }
